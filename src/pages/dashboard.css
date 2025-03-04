@@ -17,14 +17,14 @@
     box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
     width: 100%;
     max-width: 1200px;
-    background: rgb(207, 99, 146);
-    background: radial-gradient(circle, rgb(111, 172, 179) 0%, rgb(203, 212, 123) 100%);
+    background: #98c0d7;
+    /* background: radial-gradient(circle, rgb(111, 172, 179) 0%, rgb(203, 212, 123) 100%); */
 }
 
 .card-title {
     font-size: 1.5rem; 
     font-weight: bold;
-    background-color: rgb(11, 59, 15);
+    background-color: rgb(35, 33, 33);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -46,10 +46,10 @@
 }
 
 .unit-toggle-button {
-    background-color: #4d3f2b;
+    background-color: #68c183;
     color: white;
     font-size: 1.1rem;
-    padding: 0.5rem 1rem; 
+    padding: 0.5rem 0.5rem; 
     border-radius: 5px;
     border: none;
     cursor: pointer;
@@ -57,7 +57,7 @@
     margin-bottom: 1.5rem;
     position: absolute;
     top: 50px;
-    right: 274px;
+    right: 225px;
 }
 
 .unit-toggle-button:hover {

@@ -1,0 +1,123 @@
+.forecast-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+    padding: 0.5rem;
+}
+
+.forecast-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(238, 174, 202);
+    background: radial-gradient(circle, rgb(29, 9, 18) 0%, rgb(6, 44, 82) 100%);
+    padding: 0.5rem;
+    border-radius: 15px;
+    width: 150px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    color: white;
+    text-align: center;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 250px; 
+    margin: 0.1rem; 
+}
+
+.forecast-card:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.forecast-day {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.forecast-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0.5rem;
+}
+
+.temp {
+    font-size: 0.9rem;
+}
+
+.forecast-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px; 
+    margin-top: 2rem;
+}
+
+.forecast-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    width: 150px; 
+    margin: 0 10px; 
+}
+
+.forecast-item img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.forecast-day {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.forecast-temp {
+    font-size: 1rem;
+}
+
+/* Tablet (768px to 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .forecast-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .forecast-item {
+        width: 45%; /* Adjust width for tablet */
+        max-width: 200px;
+        margin: 10px;
+    }
+}
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
+    .forecast-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .forecast-item {
+        width: 100%;
+        max-width: 300px;
+        margin: 10px 0;
+    }
+    .forecast-icon {
+        width: 50px;
+        height: 50px;
+    }
+    .forecast-day {
+        font-size: 1rem;
+    }
+    .forecast-temp {
+        font-size: 0.9rem;
+    }
+}

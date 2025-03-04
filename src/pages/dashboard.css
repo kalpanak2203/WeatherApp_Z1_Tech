@@ -1,0 +1,119 @@
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #eeebeb;
+    padding: 1rem;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left; 
+    align-items: flex-start; 
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 1200px;
+    background: rgb(207, 99, 146);
+    background: radial-gradient(circle, rgb(111, 172, 179) 0%, rgb(203, 212, 123) 100%);
+}
+
+.card-title {
+    font-size: 1.5rem; 
+    font-weight: bold;
+    background-color: rgb(11, 59, 15);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    animation: gradientShift 5s ease infinite;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.card-title::after {
+    content: "";
+    display: block;
+    width: 95%;
+    height: 3px;
+    background-color: #a51906; 
+    margin: 0.5rem auto 1.5rem; 
+    border-radius: 2px;
+}
+
+.unit-toggle-button {
+    background-color: #4d3f2b;
+    color: white;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem; 
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+    position: absolute;
+    top: 50px;
+    right: 274px;
+}
+
+.unit-toggle-button:hover {
+    background-color: #00b0e6;
+    transform: scale(1.05);
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Tablet (768px to 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .card-container {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center align items */
+        padding: 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.25rem; /* Adjust font size */
+    }
+
+    .unit-toggle-button {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+        right: 50px; /* Adjust position for tablet */
+    }
+}
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
+    .card-container {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center align items */
+        padding: 1rem;
+    }
+
+    .card-title {
+        font-size: 1.1rem; /* Adjust font size */
+        text-align: center;
+    }
+
+    .unit-toggle-button {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.6rem;
+        position: static; /* Remove absolute positioning for mobile */
+        margin-bottom: 1rem;
+    }
+}

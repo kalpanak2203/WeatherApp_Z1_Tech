@@ -7,21 +7,24 @@ const ForecastCard = ({ forecastData, unit }) => {
     return date.toLocaleDateString('en-US', { weekday: 'long' });
   };
 
-  // Extract one forecast per day (preferably around 12:00 PM)
   const filteredForecast = [];
   const seenDates = new Set();
 
   forecastData?.list?.forEach((day) => {
-    const date = day.dt_txt.split(" ")[0]; // Extract the date (YYYY-MM-DD)
-    if (!seenDates.has(date) && filteredForecast.length < 5) {
+    const date = day.dt_txt.split(" ")[0]; // Extract date (YYYY-MM-DD)
+
+    if (!seenDates.has(date)) {
       seenDates.add(date);
       filteredForecast.push(day);
     }
   });
 
+  // Skip the first entry and keep the next 5 days
+  const finalForecast = filteredForecast.slice(1, 6);
+
   return (
     <div className="forecast-container">
-      {filteredForecast.map((day, index) => (
+      {finalForecast.map((day, index) => (
         <div key={index} className="forecast-card">
           <h3 className="forecast-day">{getDayOfWeek(day.dt_txt)}</h3>
           <img

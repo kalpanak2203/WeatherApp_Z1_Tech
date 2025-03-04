@@ -58,10 +58,20 @@ const Weather = ({ city, weatherData, weatherOnClick, onChangeCity, unit }) => {
       <div className="weather-card">
         <div className="weather-info">
           <h3 className="city-name">{weatherData?.location?.name ?? "Not found"}</h3>
+          <h3>{"Local time : " +weatherData?.location?.localtime ?? "Not found"}</h3>
           <div className="temp-weather">
             {weatherIcon && <img src={weatherIcon} alt="Weather Icon" className="weather-icon" />}
             <h3 className="temp">
               {unit === "metric" ? weatherData?.current?.temp_c ?? "-" : weatherData?.current?.temp_f ?? "-"}{unit === "metric" ? "°C" : "°F"}
+            </h3>
+            <h3 className="temp">
+              {"Humidity : " + weatherData?.current?.humidity?? "-"}
+            </h3>
+            <h3 className="temp">
+              {"Wind Speed(mph) : " + weatherData?.current?.wind_mph?? "-"}
+            </h3>
+            <h3 className="temp">
+              {"Wind Direction : " + weatherData?.current?.wind_dir?? "-"}
             </h3>
           </div>
           <h3 className="weather-condition">

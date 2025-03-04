@@ -21,6 +21,7 @@ const App = () => {
                 `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=5&aqi=no&alerts=no`
             );
             setWeatherData(response.data);
+            console.log(response.data)
         } catch (error) {
             console.error('Error fetching the weather data', error);
         }

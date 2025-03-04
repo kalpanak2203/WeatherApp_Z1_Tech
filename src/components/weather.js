@@ -6,11 +6,14 @@ const Weather = ({ city, weatherData, weatherOnClick, onChangeCity, unit }) => {
   const [filteredCities, setFilteredCities] = useState([]);
 
   // List of predefined cities
-  const cities = ["New Delhi","New York","Lucknow", "London", "Paris","Punjab", "Tokyo", "Mumbai", "Sydney", "Toronto", "Dubai"];
+  const cities = ["New Delhi", "New York", "Lucknow", "London", "Paris", "Punjab", "Tokyo", "Mumbai", "Sydney", "Toronto", "Dubai"];
 
-  const weatherIcon = weatherData?.current ? `https://${weatherData?.current?.condition?.icon}` : null;
+  // Fix: Ensure we access the correct path in the OpenWeather API response
+  const weatherIcon = weatherData?.list?.[0]?.weather?.[0]?.icon 
+    ? `https://openweathermap.org/img/wn/${weatherData.list[0].weather[0].icon}@2x.png`
+    : null;
 
-  // Filter cities based on the input value
+  // Filter cities based on input value
   useEffect(() => {
     if (city.length > 0) {
       setFilteredCities(cities.filter(c => c.toLowerCase().includes(city.toLowerCase())));
@@ -57,25 +60,25 @@ const Weather = ({ city, weatherData, weatherOnClick, onChangeCity, unit }) => {
 
       <div className="weather-card">
         <div className="weather-info">
-          <h3 className="city-name">{weatherData?.location?.name ?? "Not found"}</h3>
-          <h3>{"Local time : " +weatherData?.location?.localtime ?? "Not found"}</h3>
+          <h3 className="city-name">{weatherData?.city?.name ?? "Not found"}</h3>
+          <h3>{"Local Time: " + new Date().toLocaleTimeString()}</h3>
           <div className="temp-weather">
             {weatherIcon && <img src={weatherIcon} alt="Weather Icon" className="weather-icon" />}
             <h3 className="temp">
-              {unit === "metric" ? weatherData?.current?.temp_c ?? "-" : weatherData?.current?.temp_f ?? "-"}{unit === "metric" ? "°C" : "°F"}
+              {"Temperature: " + (weatherData?.list?.[0]?.main?.temp ?? "-")}{unit === "metric" ? "°C" : "°F"}
             </h3>
             <h3 className="temp">
-              {"Humidity : " + weatherData?.current?.humidity?? "-"}
+              {"Feels Like: " + (weatherData?.list?.[0]?.main?.feels_like ?? "-") + "°"}
             </h3>
             <h3 className="temp">
-              {"Wind Speed(mph) : " + weatherData?.current?.wind_mph?? "-"}
+              {"Humidity: " + (weatherData?.list?.[0]?.main?.humidity ?? "-") + "%"}
             </h3>
             <h3 className="temp">
-              {"Wind Direction : " + weatherData?.current?.wind_dir?? "-"}
+              {"Wind Speed: " + (weatherData?.list?.[0]?.wind?.speed ?? "-") + (unit === "metric" ? " m/s" : " mph")}
             </h3>
           </div>
           <h3 className="weather-condition">
-            {weatherData?.current?.condition?.text ?? "-"}
+            {weatherData?.list?.[0]?.weather?.[0]?.description ?? "-"}
           </h3>
         </div>
       </div>

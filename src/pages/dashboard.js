@@ -4,8 +4,9 @@ import Weather from "../components/weather";
 import ForecastCard from "../components/ForecastCard";
 import "./dashboard.css";
 
-const apiKey = '5a9438e54d8643be91e193147242109';
+const apiKey = 'bbff50e80358b0af490a9a3e8f82808a';
 // const apiKey = 'e25fd88865795c3c74a1918c517cc867';
+// const apiKey = 'bbff50e80358b0af490a9a3e8f82808a';
 
 
 const App = () => {
@@ -20,7 +21,7 @@ const App = () => {
     const getWeather = async () => {
         try {
             const response = await axios.get(
-                `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=5&aqi=no&alerts=no`
+                `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${unit}&appid=${apiKey}`
             );
             setWeatherData(response.data);
             console.log(response.data)
@@ -41,7 +42,7 @@ const App = () => {
                     Switch to {unit === 'metric' ? 'Fahrenheit' : 'Celsius'}
                 </button>
                 <Weather city={city} weatherData={weatherData} weatherOnClick={getWeather} onChangeCity={setCity} unit={unit} />
-                <ForecastCard forecastData={weatherData?.forecast?.forecastday} unit={unit} />
+                <ForecastCard forecastData={weatherData} unit={unit} />
             </div>
         </div>
     );

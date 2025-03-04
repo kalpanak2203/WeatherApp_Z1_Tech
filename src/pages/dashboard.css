@@ -46,12 +46,12 @@
 }
 
 .unit-toggle-button {
-    background-color: #68c183;
-    color: white;
+    background-color: #1ccad3;
+    color: rgb(2, 2, 2);
     font-size: 1.1rem;
     padding: 0.5rem 0.5rem; 
     border-radius: 5px;
-    border: none;
+    border: #64e673;
     cursor: pointer;
     transition: all 0.3s ease;
     margin-bottom: 1.5rem;
@@ -100,7 +100,7 @@
 /* Mobile (up to 767px) */
 @media (max-width: 767px) {
     .card-container {
-        flex-direction: column; /* Stack items vertically */
+        flex-direction: row; /* Stack items vertically */
         align-items: center; /* Center align items */
         padding: 1rem;
     }

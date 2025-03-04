@@ -4,8 +4,8 @@ import Weather from "../components/weather";
 import ForecastCard from "../components/ForecastCard";
 import "./dashboard.css";
 
-// const apiKey = '5a9438e54d8643be91e193147242109';
-const apiKey = 'e25fd88865795c3c74a1918c517cc867';
+const apiKey = '5a9438e54d8643be91e193147242109';
+// const apiKey = 'e25fd88865795c3c74a1918c517cc867';
 
 
 const App = () => {
